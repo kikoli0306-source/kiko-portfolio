@@ -15,10 +15,7 @@
 
   <div class="max-w-2xl">
     <p class="font-body text-xs text-white/30 tracking-[0.3em] uppercase mb-8">Artist Statement</p>
-    <p class="font-body text-lg font-light leading-[1.9] text-white/60 mb-8">My work explores how intangible experiences—memory, scent, emotion, and cultural traces—can be reconstructed through digital media.</p>
-    <p class="font-body text-sm font-light leading-[1.9] text-white/50 mb-6">Trained initially as a painter, I began my artistic journey attempting to preserve fleeting moments through brushstrokes and pigments. Over time, my practice expanded beyond the canvas into digital environments, virtual worlds, and data-driven systems. Through mediums such as 3D modeling, interactive media, and computational tools, I investigate how technology can translate ephemeral human experiences into immersive forms.</p>
-    <p class="font-body text-sm font-light leading-[1.9] text-white/50 mb-6">I am particularly interested in the ways invisible elements—such as smell, atmosphere, or fragmented memories—shape our perception of place and identity. My work often combines artistic intuition with technological frameworks, treating data as a material and digital space as a site for storytelling.</p>
-    <p class="font-body text-sm font-light leading-[1.9] text-white/50">By blending artistic practice with emerging technologies, I aim to create environments that allow viewers to reconnect with forgotten memories, cultural narratives, and emotional landscapes. For me, digital media is not merely a tool—it is a medium through which the invisible aspects of human experience can become visible again.</p>
+    <p class="font-body text-lg font-light leading-[1.9] text-white/60">My work explores how memory, scent, emotion, and cultural traces can be reconstructed through digital media. Trained initially as a painter, I now work across digital environments, interactive media, and data-driven systems to translate ephemeral human experience into immersive forms. Currently, I am pursuing an MA in Digital Studies of Language, Culture, and History at the University of Chicago, where I connect digital technology, cultural memory, and creative practice.</p>
   </div>
 
   <div class="w-16 h-px bg-white/10 my-20"></div>
