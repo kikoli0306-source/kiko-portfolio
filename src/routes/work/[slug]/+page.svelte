@@ -18,15 +18,15 @@
     <img
       src={work.image}
       alt={work.title}
-      class="w-full object-contain max-h-[80vh]"
+      class="w-full object-contain"
     />
 
-    <div class="mt-10 flex flex-col md:flex-row md:justify-between md:items-start gap-4">
-      <div>
-        <h1 class="font-display text-3xl md:text-5xl italic text-white/90">{work.title}</h1>
-        <p class="font-body text-sm text-white/30 mt-3">{work.medium}</p>
+    <div class="mt-8">
+      <div class="flex items-start justify-between gap-6">
+        <h1 class="font-display text-3xl md:text-4xl italic text-white/90">{work.title}</h1>
+        <p class="font-body text-sm tracking-wide text-zinc-500 shrink-0 pt-1">{work.year}</p>
       </div>
-      <p class="font-body text-xs text-white/20 tracking-widest shrink-0">{work.year}</p>
+      <p class="font-body text-base text-zinc-400 mt-2">{work.medium}</p>
     </div>
   </div>
 

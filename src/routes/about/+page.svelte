@@ -15,33 +15,10 @@
 
   <div class="max-w-2xl">
     <p class="font-body text-xs text-white/30 tracking-[0.3em] uppercase mb-8">Artist Statement</p>
-    <p class="font-body text-lg font-light leading-[1.9] text-white/60">My work explores how memory, scent, emotion, and cultural traces can be reconstructed through digital media. Trained initially as a painter, I now work across digital environments, interactive media, and data-driven systems to translate ephemeral human experience into immersive forms. Currently, I am pursuing an MA in Digital Studies of Language, Culture, and History at the University of Chicago, where I connect digital technology, cultural memory, and creative practice.</p>
+    <p class="font-body text-lg font-light leading-[1.9] text-white/60">My work explores how memory, scent, emotion, and cultural traces can be reconstructed through digital media. Trained initially as a painter, I now create across digital environments, interactive media, and data-driven systems, using technology to translate ephemeral human experiences into immersive forms. My practice investigates how digital space can serve as a medium for reconnecting cultural memory, sensory perception, and storytelling.</p>
   </div>
 
-  <div class="w-16 h-px bg-white/10 my-20"></div>
 
-  <div class="max-w-2xl">
-    <p class="font-body text-xs text-white/30 tracking-[0.3em] uppercase mb-8">Education</p>
-    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-4">
-      <div>
-        <p class="font-body text-base text-white/80">School of the Art Institute of Chicago</p>
-        <p class="font-body text-sm text-white/40 mt-1">Bachelor of Fine Arts — Painting and Drawing</p>
-        <p class="font-body text-sm text-white/30 mt-1">Creative Honors Scholarship Recipient</p>
-      </div>
-      <p class="font-body text-xs text-white/25 tracking-widest shrink-0">Jan. 2025</p>
-    </div>
-
-    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mt-10">
-      <div>
-        <p class="font-body text-base text-white/80">University of Chicago</p>
-        <p class="font-body text-sm text-white/40 mt-1">Master of Arts — Digital Studies of Language, Culture, and History</p>
-      </div>
-    </div>
-
-    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mt-10 mb-4">
-    </div>
-
-  </div>
 
   <div class="w-16 h-px bg-white/10 my-20"></div>
 
