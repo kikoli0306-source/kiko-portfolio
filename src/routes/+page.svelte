@@ -56,7 +56,7 @@
 
   <!-- 中央文字 -->
   <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
-    <h1 class="font-display text-5xl md:text-7xl text-white/90 italic tracking-wide">
+    <h1 class="font-display text-5xl md:text-7xl text-white/90 tracking-wide" style="font-family: 'Fraunces', serif; font-weight: 300;">
       Kiko Li
     </h1>
     <p class="mt-3 font-body text-xs text-white/50 tracking-[0.35em] uppercase">

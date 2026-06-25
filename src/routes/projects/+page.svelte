@@ -12,6 +12,13 @@
 
   const projects: Project[] = [
     {
+      title: 'Wheel of Fortune',
+      desc: 'A gesture-controlled tarot selection device that turns card selection into an embodied ritual. Seven tarot cards rotate on a motorized platform, controlled by non-contact hand gestures.',
+      tags: ['Arduino', 'Ultrasonic Sensors', 'Stepper Motor', 'Physical Computing', 'Interaction Design'],
+      cover: '/wheel-of-fortune/cover.jpg',
+      slug: 'wheel-of-fortune',
+    },
+    {
       title: 'Brave Buddies',
       desc: 'A solo-developed 2D co-op platformer in Unity. Two players fight through forest, jungle, and snow levels together.',
       tags: ['Unity', 'C#', 'Game Design', '2D Platformer'],
@@ -101,11 +108,12 @@
   }
 
   .title {
+    font-family: "Fraunces", serif;
     font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 300;
-    letter-spacing: 0.15em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.85);
-    font-style: italic;
+    
     margin: 0 0 60px;
   }
 

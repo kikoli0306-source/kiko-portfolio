@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --font-display: "Caveat", cursive;
+  --font-display: "Fraunces", serif;
   --font-body: "DM Sans", sans-serif;
 }

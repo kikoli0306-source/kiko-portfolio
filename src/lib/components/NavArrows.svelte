@@ -2,11 +2,11 @@
   import { page } from '$app/stores';
 
   const allPages = [
-    { label: 'home',     href: '/' },
-    { label: 'artworks', href: '/work' },
-    { label: 'projects', href: '/projects' },
-    { label: 'about',    href: '/about' },
-    { label: 'cv',       href: '/cv' },
+    { label: 'home',         href: '/' },
+    { label: 'projects',     href: '/projects' },
+    { label: 'about',        href: '/about' },
+    { label: 'cv',           href: '/cv' },
+    { label: 'visual work',  href: '/work' },
   ];
 </script>
 
@@ -61,7 +61,6 @@
     align-items: flex-end;
   }
 
-  /* 菜单默认隐藏，hover 向上展开 */
   .menu {
     list-style: none;
     margin: 0 0 10px 0;
@@ -85,7 +84,6 @@
     align-items: flex-end;
   }
 
-  /* 菜单项 */
   .nav-item {
     display: block;
     font-size: 0.75rem;
@@ -106,7 +104,6 @@
     cursor: default;
   }
 
-  /* 箭头 */
   .arrow {
     font-size: 1.125rem;
     letter-spacing: 0.1em;

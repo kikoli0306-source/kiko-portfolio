@@ -118,11 +118,12 @@
   }
 
   .title {
+    font-family: "Fraunces", serif;
     font-size: clamp(2.5rem, 7vw, 5rem);
-    font-weight: 300;
-    letter-spacing: 0.12em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.88);
-    font-style: italic;
+    
     margin: 0;
     line-height: 1.1;
   }
@@ -130,7 +131,7 @@
   .subtitle {
     margin: 10px 0 0;
     font-size: 0.85rem;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.35);
     text-transform: uppercase;
   }
