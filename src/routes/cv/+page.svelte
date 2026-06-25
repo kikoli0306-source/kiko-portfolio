@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
+  import NavArrows from '$lib/components/NavArrows.svelte';
 </script>
 
 <svelte:head>
@@ -205,9 +206,6 @@
 
   <div class="w-16 h-px bg-white/10 mt-24 mb-12"></div>
 
-  <div class="flex justify-between items-center w-full">
-    <a href="/about" class="font-body text-sm text-white/40 hover:text-white/80 tracking-widest transition-colors duration-300">&#8592; about</a>
-    <a href="/work" class="font-body text-sm text-white/40 hover:text-white/80 tracking-widest transition-colors duration-300">&#8594; works</a>
-  </div>
+  <NavArrows />
 
 </div>

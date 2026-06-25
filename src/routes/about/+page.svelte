@@ -1,3 +1,7 @@
+<script lang="ts">
+  import NavArrows from '$lib/components/NavArrows.svelte';
+</script>
+
 <svelte:head>
   <title>About - Kiko Li</title>
 </svelte:head>
@@ -22,9 +26,6 @@
 
   <div class="w-16 h-px bg-white/10 my-20"></div>
 
-  <div class="flex justify-between items-center">
-    <a href="/work" class="font-body text-sm text-white/40 hover:text-white/80 tracking-widest transition-colors duration-300">&#8594; works</a>
-    <a href="/cv" class="font-body text-sm text-white/40 hover:text-white/80 tracking-widest transition-colors duration-300">&#8594; cv</a>
-  </div>
+  <NavArrows />
 
 </div>

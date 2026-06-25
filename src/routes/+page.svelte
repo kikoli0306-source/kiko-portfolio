@@ -1,3 +1,7 @@
+<script lang="ts">
+  import NavArrows from '$lib/components/NavArrows.svelte';
+</script>
+
 <svelte:head>
   <title>Kiko Li — Artist</title>
 </svelte:head>
@@ -63,15 +67,7 @@
     </p>
   </div>
 
-  <a href="/work"
-    class="absolute bottom-10 left-10 text-white/80 hover:text-white text-lg tracking-widest transition-colors duration-300 flex items-center gap-2">
-    &#8594; works
-  </a>
-
-  <a href="/about"
-    class="absolute bottom-10 right-10 text-white/80 hover:text-white text-lg tracking-widest transition-colors duration-300 flex items-center gap-2">
-    &#8594; about
-  </a>
+  <NavArrows />
 
 </div>
 
