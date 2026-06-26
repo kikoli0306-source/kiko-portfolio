@@ -5,7 +5,6 @@
     { label: 'home',         href: '/' },
     { label: 'projects',     href: '/projects' },
     { label: 'about',        href: '/about' },
-    { label: 'cv',           href: '/cv' },
     { label: 'visual work',  href: '/work' },
   ];
 </script>

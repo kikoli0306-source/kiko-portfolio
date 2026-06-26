@@ -53,13 +53,12 @@
   {#if lang === 'en'}
 
   <div class="hero reveal">
-    <div class="hero-text">
-      <div class="clip"><h1 class="title line">Kiko Li</h1></div>
-      <div class="clip"><p class="hero-sub line">Creative Technologist · Digital Media · Chicago</p></div>
-    </div>
-    <div class="hero-photo line">
-      <img src="/kiko-portrait.jpg" alt="Kiko Li" class="portrait" />
-    </div>
+    <div class="clip"><h1 class="title line">Kiko Li</h1></div>
+    <div class="clip"><p class="hero-sub line">Creative Technologist · Digital Media · Chicago</p></div>
+  </div>
+
+  <div class="portrait-wrap reveal">
+    <img src="/kiko-portrait.jpg" alt="Kiko Li" class="portrait line" />
   </div>
 
   <div class="section reveal">
@@ -149,6 +148,7 @@
       <div class="skill line"><p class="skill-cat">Web & Data</p><p class="skill-val">SvelteKit, Tailwind CSS, REST API, Git/GitHub, Vercel, Streamlit, Excel, Dashboard Design</p></div>
       <div class="skill line"><p class="skill-cat">Creative Tech</p><p class="skill-val">Unity (C#), Unreal Engine 5, Arduino</p></div>
       <div class="skill line"><p class="skill-cat">3D & Design</p><p class="skill-val">Blender, Fusion 360, 3ds Max/VRay, 3D Printing, Figma, Photoshop, Illustrator, Premiere</p></div>
+      <div class="skill line"><p class="skill-cat">AI Tools & LLMs</p><p class="skill-val">Claude Code, OpenAI Codex; proficient in LLM-assisted development (vibe coding)</p></div>
       <div class="skill line"><p class="skill-cat">Languages</p><p class="skill-val">Mandarin Chinese (Native) · English (Full Professional Proficiency)</p></div>
     </div>
   </div>
@@ -156,13 +156,12 @@
   {:else}
 
   <div class="hero reveal">
-    <div class="hero-text">
-      <div class="clip"><h1 class="title line">李想</h1></div>
-      <div class="clip"><p class="hero-sub line">创意技术 · 数字媒体 · 芝加哥</p></div>
-    </div>
-    <div class="hero-photo line">
-      <img src="/kiko-portrait.jpg" alt="李想" class="portrait" />
-    </div>
+    <div class="clip"><h1 class="title line">李想</h1></div>
+    <div class="clip"><p class="hero-sub line">创意技术 · 数字媒体 · 芝加哥</p></div>
+  </div>
+
+  <div class="portrait-wrap reveal">
+    <img src="/kiko-portrait.jpg" alt="李想" class="portrait line" />
   </div>
 
   <div class="section reveal">
@@ -251,6 +250,7 @@
       <div class="skill line"><p class="skill-cat">网页与数据</p><p class="skill-val">SvelteKit、Tailwind CSS、REST API、Git/GitHub、Vercel、Streamlit、Excel、仪表盘设计</p></div>
       <div class="skill line"><p class="skill-cat">创意技术</p><p class="skill-val">Unity（C#）、Unreal Engine 5、Arduino</p></div>
       <div class="skill line"><p class="skill-cat">三维与设计</p><p class="skill-val">Blender、Fusion 360、3ds Max/VRay、3D打印、Figma、Photoshop、Illustrator、Premiere</p></div>
+      <div class="skill line"><p class="skill-cat">AI 工具</p><p class="skill-val">Claude Code、OpenAI Codex；熟练使用 LLM 辅助开发（vibe coding）</p></div>
       <div class="skill line"><p class="skill-cat">语言能力</p><p class="skill-val">中文（普通话，母语）· 英语（专业工作语言）</p></div>
     </div>
   </div>
@@ -360,30 +360,21 @@
 
   .hero {
     margin-top: 120px;
-    margin-bottom: 120px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 72px;
+    margin-bottom: 56px;
+  }
+
+  .portrait-wrap {
+    margin-bottom: 96px;
     max-width: 960px;
   }
 
-  .hero-text {
-    flex: 1;
-    min-width: 0;
-  }
-
-  .hero-photo {
-    width: 200px;
-    flex-shrink: 0;
-  }
-
   .portrait {
-    width: 100%;
-    height: 280px;
+    width: 156px;
+    height: 172px;
     object-fit: cover;
     object-position: center 8%;
     display: block;
+    border-radius: 50%;
     filter: grayscale(10%);
   }
 
