@@ -53,8 +53,13 @@
   {#if lang === 'en'}
 
   <div class="hero reveal">
-    <div class="clip"><h1 class="title line">Kiko Li</h1></div>
-    <div class="clip"><p class="hero-sub line">Creative Technologist · Digital Media · Chicago</p></div>
+    <div class="hero-text">
+      <div class="clip"><h1 class="title line">Kiko Li</h1></div>
+      <div class="clip"><p class="hero-sub line">Creative Technologist · Digital Media · Chicago</p></div>
+    </div>
+    <div class="hero-photo line">
+      <img src="/kiko-portrait.jpg" alt="Kiko Li" class="portrait" />
+    </div>
   </div>
 
   <div class="section reveal">
@@ -151,8 +156,13 @@
   {:else}
 
   <div class="hero reveal">
-    <div class="clip"><h1 class="title line">李想</h1></div>
-    <div class="clip"><p class="hero-sub line">创意技术 · 数字媒体 · 芝加哥</p></div>
+    <div class="hero-text">
+      <div class="clip"><h1 class="title line">李想</h1></div>
+      <div class="clip"><p class="hero-sub line">创意技术 · 数字媒体 · 芝加哥</p></div>
+    </div>
+    <div class="hero-photo line">
+      <img src="/kiko-portrait.jpg" alt="李想" class="portrait" />
+    </div>
   </div>
 
   <div class="section reveal">
@@ -351,6 +361,30 @@
   .hero {
     margin-top: 120px;
     margin-bottom: 120px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 72px;
+    max-width: 960px;
+  }
+
+  .hero-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .hero-photo {
+    width: 200px;
+    flex-shrink: 0;
+  }
+
+  .portrait {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center 8%;
+    display: block;
+    filter: grayscale(10%);
   }
 
   .title {
