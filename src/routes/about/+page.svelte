@@ -37,13 +37,12 @@
   <div class="top-bar">
     <a href="/" class="back">&#8592; back</a>
     <div class="top-right">
-      <div class="cv-wrapper">
-        <button class="cv-btn">↓ cv</button>
-        <div class="cv-menu">
-          <a class="cv-option" href="/Kiko_Li_Resume_EN.docx" download>English</a>
-          <a class="cv-option" href="/李想_中文简历.docx" download>中文</a>
-        </div>
-      </div>
+      <a
+        href={lang === 'en' ? '/Kiko_Li_Resume_EN.pdf' : '/Kiko_Li_Resume_CN.pdf'}
+        download
+        class="lang-toggle"
+        style="text-decoration: none;"
+      >{lang === 'en' ? 'Résumé ↓' : '简历 ↓'}</a>
       <button class="lang-toggle" onclick={() => lang = lang === 'en' ? 'zh' : 'en'}>
         {lang === 'en' ? '中文' : 'English'}
       </button>
@@ -57,17 +56,16 @@
     <div class="clip"><p class="hero-sub line">Creative Technologist · Digital Media · Chicago</p></div>
   </div>
 
-  <div class="portrait-wrap reveal">
-    <img src="/kiko-portrait.jpg" alt="Kiko Li" class="portrait line" />
-  </div>
-
   <div class="section reveal">
     <div class="label-col"><div class="clip"><span class="sec-label line">About</span></div></div>
-    <div class="sec-body">
-      <div class="clip"><p class="body line">I'm Kiko Li, a creative technologist and digital media practitioner based in Chicago.</p></div>
-      <div class="clip"><p class="body line">My background is in painting and drawing, but I've spent the last few years building data dashboards, interactive installations, SvelteKit apps, and 3D environments. The common thread is translation — turning data, memory, or systems into something a person can actually experience.</p></div>
-      <div class="clip"><p class="body line">I hold an M.A. in Digital Media Studies from the University of Chicago and a BFA from the School of the Art Institute of Chicago. I work across Python, JavaScript, Unity, Unreal Engine, and whatever else the project needs.</p></div>
-      <div class="clip"><p class="body line">I'm drawn to work where technical decisions have design consequences, and design decisions have real stakes.</p></div>
+    <div class="sec-body about-body">
+      <img src="/kiko-portrait.jpg" alt="Kiko Li" class="portrait line" />
+      <div class="about-text">
+        <div class="clip"><p class="body line">I'm Kiko Li, a creative technologist and digital media practitioner based in Chicago.</p></div>
+        <div class="clip"><p class="body line">My background is in painting and drawing, but I've spent the last few years building data dashboards, interactive installations, SvelteKit apps, and 3D environments. The common thread is translation — turning data, memory, or systems into something a person can actually experience.</p></div>
+        <div class="clip"><p class="body line">I hold an M.A. in Digital Media Studies from the University of Chicago and a BFA from the School of the Art Institute of Chicago. I work across Python, JavaScript, Unity, Unreal Engine, and whatever else the project needs.</p></div>
+        <div class="clip"><p class="body line">I'm drawn to work where technical decisions have design consequences, and design decisions have real stakes.</p></div>
+      </div>
     </div>
   </div>
 
@@ -115,6 +113,7 @@
         <div class="edu-row"><p class="edu-school">Flock Camera Data Physicalization</p><p class="edu-date">Apr 2026</p></div>
         <p class="edu-degree">University of Chicago</p>
         <p class="edu-detail">Built a tangible data physicalization installation mapping Chicago Flock/ALPR camera distribution using Toio robots and projection mapping. Designed dual-robot interaction for spatial selection and demographic filtering.</p>
+        <a href="/projects/tangible-surveillance" class="proj-link">View Project →</a>
       </div>
       <div class="edu line">
         <div class="edu-row"><p class="edu-school">Ocean Intelligent Visualization Project</p><p class="edu-date">Nov 2024 – Mar 2025</p></div>
@@ -138,6 +137,7 @@
     <div class="label-col"><div class="clip"><span class="sec-label line">Awards</span></div></div>
     <div class="sec-body">
       <div class="clip"><p class="body line">Bronze Award, 19th Zhejiang Provincial "Challenge Cup" College Student Academic Science & Technology Competition ("AI+" Track) — Co-developed "SmartDrag: A Portable Digital Twin Scene Editor" with a cross-disciplinary team.</p></div>
+      <a href="/projects/smartdrag" class="proj-link">View Project →</a>
     </div>
   </div>
 
@@ -160,16 +160,15 @@
     <div class="clip"><p class="hero-sub line">创意技术 · 数字媒体 · 芝加哥</p></div>
   </div>
 
-  <div class="portrait-wrap reveal">
-    <img src="/kiko-portrait.jpg" alt="李想" class="portrait line" />
-  </div>
-
   <div class="section reveal">
     <div class="label-col"><div class="clip"><span class="sec-label line">关于</span></div></div>
-    <div class="sec-body">
-      <div class="clip"><p class="body line">我是 李想，一名常驻芝加哥的创意技术与数字媒体实践者。</p></div>
-      <div class="clip"><p class="body line">我的背景始于绘画与造型艺术，但过去几年里，我逐渐转向数据仪表盘、交互装置、SvelteKit 应用和 3D 环境的构建。贯穿这些实践的，是一种"转译"的过程——把数据、记忆或系统，转化为人能够真实感知和体验的东西。</p></div>
-      <div class="clip"><p class="body line">我拥有芝加哥大学 Digital Media Studies 硕士学位，以及芝加哥艺术学院艺术学士学位。我喜欢那些真正需要在技术和设计之间来回判断的工作。对我来说，技术从来不只是实现功能，设计也不只是让东西看起来更好。一个技术选择会改变人的使用方式，一个设计选择也可能影响信息如何被理解、被信任，甚至被行动。</p></div>
+    <div class="sec-body about-body">
+      <img src="/kiko-portrait.jpg" alt="李想" class="portrait line" />
+      <div class="about-text">
+        <div class="clip"><p class="body line">我是 李想，一名常驻芝加哥的创意技术与数字媒体实践者。</p></div>
+        <div class="clip"><p class="body line">我的背景始于绘画与造型艺术，但过去几年里，我逐渐转向数据仪表盘、交互装置、SvelteKit 应用和 3D 环境的构建。贯穿这些实践的，是一种"转译"的过程——把数据、记忆或系统，转化为人能够真实感知和体验的东西。</p></div>
+        <div class="clip"><p class="body line">我拥有芝加哥大学 Digital Media Studies 硕士学位，以及芝加哥艺术学院艺术学士学位。我喜欢那些真正需要在技术和设计之间来回判断的工作。对我来说，技术从来不只是实现功能，设计也不只是让东西看起来更好。一个技术选择会改变人的使用方式，一个设计选择也可能影响信息如何被理解、被信任，甚至被行动。</p></div>
+      </div>
     </div>
   </div>
 
@@ -217,6 +216,7 @@
         <div class="edu-row"><p class="edu-school">Flock摄像头数据实物化装置</p><p class="edu-date">2026年4月</p></div>
         <p class="edu-degree">芝加哥大学</p>
         <p class="edu-detail">结合Toio机器人与投影映射技术，打造可触摸感知的空间数据装置，直观呈现芝加哥Flock/ALPR摄像头的地理分布。设计双机器人协同交互机制，支持区域选择与人口统计学维度的实时筛选。</p>
+        <a href="/projects/tangible-surveillance" class="proj-link">查看项目 →</a>
       </div>
       <div class="edu line">
         <div class="edu-row"><p class="edu-school">海洋智能可视化项目</p><p class="edu-date">2024年11月 — 2025年3月</p></div>
@@ -240,6 +240,7 @@
     <div class="label-col"><div class="clip"><span class="sec-label line">获奖情况</span></div></div>
     <div class="sec-body">
       <div class="clip"><p class="body line">铜奖 — 浙江省第十九届"挑战杯"大学生课外学术科技作品竞赛"人工智能+"专项赛：与跨学科团队联合研发作品《智拖快手——便携式数字孪生场景编辑器》。</p></div>
+      <a href="/projects/smartdrag" class="proj-link">查看项目 →</a>
     </div>
   </div>
 
@@ -250,7 +251,7 @@
       <div class="skill line"><p class="skill-cat">网页与数据</p><p class="skill-val">SvelteKit、Tailwind CSS、REST API、Git/GitHub、Vercel、Streamlit、Excel、仪表盘设计</p></div>
       <div class="skill line"><p class="skill-cat">创意技术</p><p class="skill-val">Unity（C#）、Unreal Engine 5、Arduino</p></div>
       <div class="skill line"><p class="skill-cat">三维与设计</p><p class="skill-val">Blender、Fusion 360、3ds Max/VRay、3D打印、Figma、Photoshop、Illustrator、Premiere</p></div>
-      <div class="skill line"><p class="skill-cat">AI 工具</p><p class="skill-val">Claude Code、OpenAI Codex；熟练使用 LLM 辅助开发（vibe coding）</p></div>
+      <div class="skill line"><p class="skill-cat">AI 工具与大模型</p><p class="skill-val">Claude Code、OpenAI Codex；熟练运用 AI 辅助开发（vibe coding）工作流</p></div>
       <div class="skill line"><p class="skill-cat">语言能力</p><p class="skill-val">中文（普通话，母语）· 英语（专业工作语言）</p></div>
     </div>
   </div>
@@ -293,56 +294,16 @@
   }
   .back:hover { color: rgba(255,255,255,0.75); }
 
-  .cv-wrapper {
-    position: relative;
-  }
-
-  .cv-btn {
+  .proj-link {
     font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: lowercase;
-    color: rgba(255,255,255,0.3);
-    background: none;
-    border: 0.5px solid rgba(255,255,255,0.15);
-    border-radius: 4px;
-    padding: 4px 12px;
-    cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .cv-wrapper:hover .cv-btn { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.35); }
-
-  .cv-menu {
-    position: absolute;
-    top: calc(100% + 6px);
-    right: 0;
-    background: #0e0e24;
-    border: 0.5px solid rgba(255,255,255,0.12);
-    border-radius: 4px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-4px);
-    transition: opacity 0.18s ease, transform 0.18s ease;
-  }
-  .cv-wrapper:hover .cv-menu {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
-  }
-
-  .cv-option {
-    font-size: 0.70rem;
-    letter-spacing: 0.15em;
-    text-transform: lowercase;
+    letter-spacing: 0.1em;
     color: rgba(255,255,255,0.35);
     text-decoration: none;
-    padding: 7px 18px;
-    white-space: nowrap;
-    transition: background 0.15s, color 0.15s;
+    transition: color 0.2s;
+    margin-top: 4px;
+    align-self: flex-start;
   }
-  .cv-option:hover { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.8); }
+  .proj-link:hover { color: rgba(255,255,255,0.75); }
 
   .lang-toggle {
     font-size: 0.72rem;
@@ -360,22 +321,31 @@
 
   .hero {
     margin-top: 120px;
-    margin-bottom: 56px;
+    margin-bottom: 0;
   }
 
-  .portrait-wrap {
-    margin-bottom: 96px;
-    max-width: 960px;
+  .about-body {
+    flex-direction: row !important;
+    gap: 40px !important;
+    align-items: flex-start !important;
+  }
+
+  .about-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
   }
 
   .portrait {
-    width: 156px;
-    height: 172px;
+    width: 140px;
+    height: 140px;
     object-fit: cover;
     object-position: center 8%;
     display: block;
     border-radius: 50%;
+    border: 0.5px solid rgba(255,255,255,0.1);
     filter: grayscale(10%);
+    flex-shrink: 0;
   }
 
   .title {
@@ -399,8 +369,8 @@
   .section {
     display: grid;
     grid-template-columns: 160px 1fr;
-    gap: 0 64px;
-    padding: 64px 0;
+    gap: 0 80px;
+    padding: 80px 0;
     border-top: 0.5px solid rgba(255,255,255,0.06);
     max-width: 960px;
   }
@@ -512,7 +482,7 @@
     display: block;
     transform: translateY(60%);
     opacity: 0;
-    transition: transform 1.4s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.1s ease;
+    transition: transform 2s cubic-bezier(0.22, 1, 0.36, 1), opacity 1.6s ease;
   }
 
   .line:global(.visible) {

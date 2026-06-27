@@ -4,16 +4,16 @@
   import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
   import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
+  let lang = $state<'en' | 'zh'>('en');
+
   function initViewer(canvas: HTMLCanvasElement, stlUrl: string) {
-    // Read actual size after layout; canvas has fixed height 280px so h is safe,
-    // but width depends on flex layout — use getBoundingClientRect as ground truth.
     const rect = canvas.getBoundingClientRect();
     const w = rect.width || canvas.offsetWidth || 400;
     const h = rect.height || 280;
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(w, h, false); // false = don't set CSS size (CSS owns it)
+    renderer.setSize(w, h, false);
     renderer.setClearColor(0x000000, 0);
 
     const scene = new THREE.Scene();
@@ -39,13 +39,11 @@
       (geometry) => {
         geometry.computeVertexNormals();
 
-        // Center geometry
         geometry.computeBoundingBox();
         const center = new THREE.Vector3();
         geometry.boundingBox!.getCenter(center);
         geometry.translate(-center.x, -center.y, -center.z);
 
-        // Normalize scale to fit in a ~3-unit cube
         const size = new THREE.Vector3();
         geometry.boundingBox!.getSize(size);
         const maxDim = Math.max(size.x, size.y, size.z);
@@ -71,7 +69,6 @@
     }
     animate();
 
-    // Keep renderer sized to canvas on layout changes
     const ro = new ResizeObserver((entries) => {
       for (const entry of entries) {
         const { width, height } = entry.contentRect;
@@ -94,7 +91,6 @@
   let lightbox: string | null = $state(null);
 
   onMount(() => {
-    // Wait one rAF so flex layout has resolved and clientWidth is non-zero
     requestAnimationFrame(() => {
       const cameraCanvas = document.getElementById('canvas-camera') as HTMLCanvasElement;
       const carCanvas = document.getElementById('canvas-car') as HTMLCanvasElement;
@@ -112,7 +108,14 @@
 
 <div class="root">
   <div class="content">
-    <a href="/projects" class="back">&#8592; projects</a>
+    <div class="top-bar">
+      <a href="/projects" class="back">&#8592; projects</a>
+      <button class="lang-toggle" onclick={() => lang = lang === 'en' ? 'zh' : 'en'}>
+        {lang === 'en' ? '中文' : 'English'}
+      </button>
+    </div>
+
+    {#if lang === 'en'}
 
     <div class="header">
       <h1 class="title">Tangible Surveillance</h1>
@@ -140,6 +143,23 @@
       inevitably simplifies the data it represents.
     </p>
 
+    {:else}
+
+    <div class="header">
+      <h1 class="title">有形监控</h1>
+      <p class="subtitle">数据实物化 · 实体界面</p>
+    </div>
+
+    <p class="desc">
+      我们的团队构建了一套数据实物化系统，通过 toio 机器人、投影映射与实体地图界面，将芝加哥的自动车牌识别（ALPR）摄像头网络转化为可在空间中感知的存在。六台 toio 机器人部署于一张物理垫上，与两张投影地图联动：一张展示城市全貌，另一张则是放大后的社区视图。其中一台充当平移地图的瞄准器；一台代表行驶中的汽车；四台代表附近的 ALPR 摄像头，能够自动移动至最近的摄像头位置，并旋转朝向各摄像头的实际监控方向。随着车辆靠近，摄像头 toio 的灯光从蓝色依次变为黄色、红色；一旦进入摄像头探测锥形区域，汽车 toio 便会闪烁红色并发出警报。侧边栏同步显示当前社区的社会经济数据，包括贫困率、失业率及人均收入。
+    </p>
+
+    <p class="desc">
+      测试过程中浮现出一个关键发现：在监控密集的街区，四台摄像头 toio 聚集在一起，在物理垫上根本无法正常移动——垫子容纳不下实际摄像头的密度。这无意中揭示了监控在某些区域高度集中的现实，同时也提醒我们：实物化作为一种媒介，终究无可避免地对其所呈现的数据有所简化。
+    </p>
+
+    {/if}
+
     <iframe
       src="https://www.youtube.com/embed/w17SwY5e4nY"
       title="Tangible Surveillance demo"
@@ -150,7 +170,7 @@
     ></iframe>
 
     <div class="section">
-      <p class="section-label">Interface & Artifacts</p>
+      <p class="section-label">{lang === 'en' ? 'Interface & Artifacts' : '界面与实物'}</p>
 
       <button
         class="screenshot-btn"
@@ -167,11 +187,11 @@
       <div class="models">
         <div class="model-item">
           <canvas id="canvas-camera" class="model-canvas"></canvas>
-          <p class="model-label">Camera Toio Shell</p>
+          <p class="model-label">{lang === 'en' ? 'Camera Toio Shell' : '摄像头 Toio 外壳'}</p>
         </div>
         <div class="model-item">
           <canvas id="canvas-car" class="model-canvas"></canvas>
-          <p class="model-label">Car Toio Shell</p>
+          <p class="model-label">{lang === 'en' ? 'Car Toio Shell' : '汽车 Toio 外壳'}</p>
         </div>
       </div>
     </div>
@@ -220,6 +240,12 @@
     gap: 0;
   }
 
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .back {
     font-size: 0.72rem;
     letter-spacing: 0.2em;
@@ -234,6 +260,20 @@
     color: rgba(255, 255, 255, 0.75);
   }
 
+  .lang-toggle {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    color: rgba(255,255,255,0.3);
+    background: none;
+    border: 0.5px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .lang-toggle:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.35); }
+
   .header {
     margin-top: 56px;
   }
@@ -244,7 +284,7 @@
     font-weight: 600;
     letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.88);
-    
+
     margin: 0;
     line-height: 1.1;
   }

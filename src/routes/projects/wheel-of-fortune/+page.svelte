@@ -52,6 +52,9 @@
       ></iframe>
     </div>
 
+    <div class="actions">
+      <a class="action-btn" href="/wheel-of-fortune/writeup.pdf" target="_blank">Read Write-up ↗</a>
+    </div>
 
     <div class="divider"></div>
 
@@ -74,5 +77,8 @@
   .section-label { margin: 56px 0 12px; font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
   .video-wrap { width: 100%; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; border: 0.5px solid rgba(255,255,255,0.08); }
   .video { width: 100%; height: 100%; border: none; display: block; }
+  .actions { margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .action-btn { display: inline-flex; align-items: center; padding: 10px 24px; border: 0.5px solid rgba(255,255,255,0.2); border-radius: 6px; background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.75); font-size: 0.8rem; letter-spacing: 0.08em; text-decoration: none; transition: background 0.2s, border-color 0.2s, color 0.2s; }
+  .action-btn:hover { background: rgba(255,255,255,0.09); border-color: rgba(255,255,255,0.4); color: rgba(255,255,255,0.95); }
   .divider { width: 64px; height: 0.5px; background: rgba(255,255,255,0.1); margin: 72px 0; }
 </style>

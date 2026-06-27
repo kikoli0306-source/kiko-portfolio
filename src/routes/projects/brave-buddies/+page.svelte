@@ -1,4 +1,5 @@
 <script lang="ts">
+  let lang = $state<'en' | 'zh'>('en');
   let lightbox: string | null = $state(null);
 
   const screenshots = [
@@ -25,7 +26,14 @@
 
 <div class="root">
   <div class="content">
-    <a href="/projects" class="back">&#8592; projects</a>
+    <div class="top-bar">
+      <a href="/projects" class="back">&#8592; projects</a>
+      <button class="lang-toggle" onclick={() => lang = lang === 'en' ? 'zh' : 'en'}>
+        {lang === 'en' ? '中文' : 'English'}
+      </button>
+    </div>
+
+    {#if lang === 'en'}
 
     <div class="header">
       <h1 class="title">Brave Buddies</h1>
@@ -52,6 +60,34 @@
     >
       🎮 Play on itch.io
     </a>
+
+    {:else}
+
+    <div class="header">
+      <h1 class="title">勇敢伙伴</h1>
+      <p class="subtitle">独立开发的 2D 合作平台游戏</p>
+    </div>
+
+    <p class="desc">
+      一款独立开发的 Unity 2D 合作平台游戏。玩家操控 Wilo 和 Gabby，穿越三个手工打造的场景——森林、丛林与雪地，一同击败敌人、收集金币、相互扶持。
+    </p>
+
+    <div class="tags">
+      {#each ['Unity', 'C#', 'Game Design', '2D Platformer'] as tag}
+        <span class="tag">{tag}</span>
+      {/each}
+    </div>
+
+    <a
+      class="play-btn"
+      href="https://kikoli0620.itch.io/brave-buddies"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🎮 在 itch.io 上试玩
+    </a>
+
+    {/if}
 
     <div class="gallery">
       {#each screenshots as shot}
@@ -99,6 +135,12 @@
     gap: 0;
   }
 
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .back {
     font-size: 0.72rem;
     letter-spacing: 0.2em;
@@ -113,6 +155,20 @@
     color: rgba(255, 255, 255, 0.75);
   }
 
+  .lang-toggle {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    color: rgba(255,255,255,0.3);
+    background: none;
+    border: 0.5px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .lang-toggle:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.35); }
+
   .header {
     margin-top: 56px;
   }
@@ -123,7 +179,7 @@
     font-weight: 600;
     letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.88);
-    
+
     margin: 0;
     line-height: 1.1;
   }

@@ -1,5 +1,6 @@
 <script lang="ts">
   import NavArrows from '$lib/components/NavArrows.svelte';
+  import RainCanvas from '$lib/components/RainCanvas.svelte';
   import { onMount } from 'svelte';
 
   interface Project {
@@ -8,7 +9,9 @@
     tags: string[];
     link?: string;
     cover?: string;
+    preview?: string;
     slug?: string;
+    canvas?: boolean;
   }
 
   const projects: Project[] = [
@@ -17,14 +20,31 @@
       desc: 'A gesture-controlled tarot selection device that turns card selection into an embodied ritual. Seven tarot cards rotate on a motorized platform, controlled by non-contact hand gestures.',
       tags: ['Arduino', 'Ultrasonic Sensors', 'Stepper Motor', 'Physical Computing', 'Interaction Design'],
       cover: '/wheel-of-fortune/cover.jpg',
+      preview: '/wheel-of-fortune/preview.mp4',
       slug: 'wheel-of-fortune',
+    },
+    {
+      title: 'Rain Touch',
+      desc: 'A tangible interface that translates falling rain into touch. A Processing sketch generates a field of raindrops, and as each drop lands, the system drives a vibration motor through Arduino — letting users feel the rhythm of rain.',
+      tags: ['Arduino', 'Processing', 'Serial Communication', 'Haptics', 'Physical Computing'],
+      slug: 'rain-touch',
+      canvas: true,
     },
     {
       title: 'Tangible Surveillance',
       desc: 'A data physicalization system using toio robots, projection mapping, and a physical map to make Chicago\'s ALPR camera network spatially tangible.',
       tags: ['toio', 'Projection Mapping', 'Data Physicalization', 'SvelteKit'],
       cover: '/tangible-surveillance/cover.jpg',
+      preview: '/tangible-surveillance/preview.mp4',
       slug: 'tangible-surveillance',
+    },
+    {
+      title: 'Brave Buddies',
+      desc: 'A solo-developed 2D co-op platformer in Unity. Two players fight through forest, jungle, and snow levels together.',
+      tags: ['Unity', 'C#', 'Game Design', '2D Platformer'],
+      cover: '/brave-buddies/cover.png',
+      preview: '/brave-buddies/preview.mp4',
+      slug: 'brave-buddies',
     },
     {
       title: 'Chicago ALPR Surveillance Dashboard',
@@ -45,13 +65,6 @@
       desc: 'A portable digital twin scene editor built on Unreal Engine 5. Drag-and-drop 3D scene construction, real-time data binding, AI-assisted generation, and intelligent monitoring for industrial environments.',
       tags: ['Unreal Engine 5', 'Digital Twin', 'AI', '3D', 'Data Visualization'],
       slug: 'smartdrag',
-    },
-    {
-      title: 'Brave Buddies',
-      desc: 'A solo-developed 2D co-op platformer in Unity. Two players fight through forest, jungle, and snow levels together.',
-      tags: ['Unity', 'C#', 'Game Design', '2D Platformer'],
-      cover: '/brave-buddies/cover.png',
-      slug: 'brave-buddies',
     },
   ];
 
@@ -94,8 +107,12 @@
           href={project.slug ? `/projects/${project.slug}` : undefined}
         >
           <div class="cover-wrap">
-            {#if project.cover}
+            {#if project.preview}
+              <video src={project.preview} autoplay muted loop playsinline class="cover-img"></video>
+            {:else if project.cover}
               <img class="cover-img" src={project.cover} alt={project.title} />
+            {:else if project.canvas}
+              <RainCanvas />
             {:else}
               <div class="cover-placeholder"></div>
             {/if}
@@ -186,6 +203,18 @@
   }
 
   .project-item:hover .cover-img {
+    transform: scale(1.03);
+  }
+
+  .cover-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .project-item:hover .cover-wrap video {
     transform: scale(1.03);
   }
 

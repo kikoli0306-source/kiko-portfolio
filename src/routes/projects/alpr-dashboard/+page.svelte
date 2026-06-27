@@ -1,10 +1,21 @@
+<script lang="ts">
+  let lang = $state<'en' | 'zh'>('en');
+</script>
+
 <svelte:head>
   <title>Chicago ALPR Surveillance Dashboard — Kiko Li</title>
 </svelte:head>
 
 <div class="root">
   <div class="content">
-    <a href="/projects" class="back">&#8592; projects</a>
+    <div class="top-bar">
+      <a href="/projects" class="back">&#8592; projects</a>
+      <button class="lang-toggle" onclick={() => lang = lang === 'en' ? 'zh' : 'en'}>
+        {lang === 'en' ? '中文' : 'English'}
+      </button>
+    </div>
+
+    {#if lang === 'en'}
 
     <div class="header">
       <h1 class="title">Chicago ALPR Surveillance Dashboard</h1>
@@ -54,6 +65,50 @@
 
     <p class="embed-hint">scroll to explore · if the dashboard doesn't load, open it directly ↗</p>
 
+    {:else}
+
+    <div class="header">
+      <h1 class="title">芝加哥 ALPR 监控仪表盘</h1>
+      <p class="subtitle">数据可视化 · 公共安全技术</p>
+    </div>
+
+    <p class="desc">
+      本项目考察记录在案的自动车牌识别（ALPR）摄像头在芝加哥各地的分布情况，及其与社区层面社会经济困境指数之间的关联。通过对 595 个 ALPR 摄像头位置数据进行空间关联分析，将摄像头点位与芝加哥 77 个社区区块多边形匹配，并与困境指数、贫困率、失业率及收入水平等指标进行比较。
+    </p>
+
+    <p class="desc">
+      仪表盘包含 ALPR 摄像头分布点图、社区摄像头密度与社会经济背景的对比地图、困境/摄像头四象限散点图、比例符号地图、运营主体构成图，以及高曝光社区的排名图表。项目的目标不在于证明因果关系，而是让公共安全技术的空间分布模式可见、可解读。
+    </p>
+
+    <div class="tags">
+      {#each ['Python', 'Streamlit', 'Plotly', 'GeoPandas', 'Data Visualization'] as tag}
+        <span class="tag">{tag}</span>
+      {/each}
+    </div>
+
+    <div class="actions">
+      <a
+        class="action-btn"
+        href="https://alpr-surveillance-dashboard-axawcpzaowmvest455ladk.streamlit.app/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ↗ 查看仪表盘
+      </a>
+      <a
+        class="action-btn"
+        href="https://github.com/kikoli0306-source/alpr-surveillance-dashboard"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        ↗ GitHub
+      </a>
+    </div>
+
+    <p class="embed-hint">可滚动浏览 · 如仪表盘未加载，请直接点击上方链接打开 ↗</p>
+
+    {/if}
+
     <div class="embed-wrap">
       <iframe
         src="https://alpr-surveillance-dashboard-axawcpzaowmvest455ladk.streamlit.app/?embedded=true"
@@ -88,6 +143,12 @@
     gap: 0;
   }
 
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   .back {
     font-size: 0.72rem;
     letter-spacing: 0.2em;
@@ -102,6 +163,20 @@
     color: rgba(255, 255, 255, 0.75);
   }
 
+  .lang-toggle {
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: lowercase;
+    color: rgba(255,255,255,0.3);
+    background: none;
+    border: 0.5px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 4px 12px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .lang-toggle:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.35); }
+
   .header {
     margin-top: 56px;
   }
@@ -112,7 +187,7 @@
     font-weight: 600;
     letter-spacing: 0.05em;
     color: rgba(255, 255, 255, 0.88);
-    
+
     margin: 0;
     line-height: 1.1;
   }
