@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ProjectLanguageToggle from "$lib/components/ProjectLanguageToggle.svelte";
   import { onMount } from 'svelte';
   import * as THREE from 'three';
   import { STLLoader } from 'three/examples/jsm/loaders/STLLoader.js';
@@ -107,12 +108,10 @@
 <svelte:window onkeydown={(e) => { if (e.key === 'Escape') lightbox = null; }} />
 
 <div class="root">
-  <div class="content">
+  <div class="content" lang={lang === 'en' ? 'en' : 'zh-CN'}>
     <div class="top-bar">
-      <a href="/projects" class="back">&#8592; projects</a>
-      <button class="lang-toggle" onclick={() => lang = lang === 'en' ? 'zh' : 'en'}>
-        {lang === 'en' ? '中文' : 'English'}
-      </button>
+      <a href="/projects" class="back">&#8592; {lang === 'en' ? 'projects' : '项目'}</a>
+      <ProjectLanguageToggle bind:lang />
     </div>
 
     {#if lang === 'en'}
@@ -162,7 +161,7 @@
 
     <iframe
       src="https://www.youtube.com/embed/w17SwY5e4nY"
-      title="Tangible Surveillance demo"
+      title={lang === 'en' ? "Tangible Surveillance demo" : "有形监控演示"}
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen
@@ -175,11 +174,11 @@
       <button
         class="screenshot-btn"
         onclick={() => lightbox = '/tangible-surveillance/screenshot-1.png'}
-        aria-label="Enlarge interface screenshot"
+        aria-label={lang === 'en' ? "Enlarge interface screenshot" : "放大界面截图"}
       >
         <img
           src="/tangible-surveillance/screenshot-1.png"
-          alt="System interface showing ALPR camera distribution and socioeconomic data"
+          alt={lang === 'en' ? "System interface showing ALPR camera distribution and socioeconomic data" : "显示 ALPR 摄像头分布与社会经济数据的系统界面"}
           class="screenshot"
         />
       </button>
@@ -197,14 +196,14 @@
     </div>
 
     <div class="tags">
-      {#each ['toio', 'Projection Mapping', 'Data Physicalization', 'SvelteKit', 'Chicago ALPR'] as tag}
+      {#each (lang === 'en' ? ['toio', 'Projection Mapping', 'Data Physicalization', 'SvelteKit', 'Chicago ALPR'] : ['toio', '投影映射', '数据实物化', 'SvelteKit', '芝加哥 ALPR']) as tag}
         <span class="tag">{tag}</span>
       {/each}
     </div>
 
     <div class="divider"></div>
 
-    <a href="/projects" class="back">&#8592; back to projects</a>
+    <a href="/projects" class="back">&#8592; {lang === 'en' ? 'back to projects' : '返回项目列表'}</a>
   </div>
 </div>
 
@@ -213,11 +212,11 @@
     class="overlay"
     role="button"
     tabindex="0"
-    aria-label="Close image"
+    aria-label={lang === 'en' ? "Close image" : "关闭图片"}
     onclick={() => lightbox = null}
     onkeydown={(e) => e.key === 'Enter' && (lightbox = null)}
   >
-    <img class="lightbox-img" src={lightbox} alt="Screenshot enlarged" />
+    <img class="lightbox-img" src={lightbox} alt={lang === 'en' ? "Screenshot enlarged" : "放大的截图"} />
   </div>
 {/if}
 
@@ -260,19 +259,6 @@
     color: rgba(255, 255, 255, 0.75);
   }
 
-  .lang-toggle {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: lowercase;
-    color: rgba(255,255,255,0.3);
-    background: none;
-    border: 0.5px solid rgba(255,255,255,0.15);
-    border-radius: 4px;
-    padding: 4px 12px;
-    cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .lang-toggle:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.35); }
 
   .header {
     margin-top: 56px;

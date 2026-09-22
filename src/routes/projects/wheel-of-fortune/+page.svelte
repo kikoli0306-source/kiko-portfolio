@@ -1,4 +1,6 @@
 <script lang="ts">
+  import ProjectLanguageToggle from "$lib/components/ProjectLanguageToggle.svelte";
+  let lang = $state<'en' | 'zh'>('en');
 </script>
 
 <svelte:head>
@@ -7,22 +9,30 @@
 
 
 <div class="root">
-  <div class="content">
-    <a href="/projects" class="back">&#8592; projects</a>
+  <div class="content" lang={lang === 'en' ? 'en' : 'zh-CN'}>
+    <div class="top-bar">
+      <a href="/projects" class="back">&#8592; {lang === 'en' ? 'projects' : '项目'}</a>
+      <ProjectLanguageToggle bind:lang />
+    </div>
 
     <div class="header">
-      <h1 class="title">Wheel of Fortune</h1>
-      <p class="subtitle">Physical Computing · Interaction Design</p>
+      <h1 class="title">{lang === 'en' ? "Wheel of Fortune" : "命运之轮"}</h1>
+      <p class="subtitle">{lang === 'en' ? "Physical Computing · Interaction Design" : "物理计算 · 交互设计"}</p>
     </div>
 
     <p class="desc">
+      {#if lang === 'en'}
       Wheel of Fortune is an actuated tarot interaction device that turns card selection into an
       embodied ritual. Inspired by the circular rhythm of a carousel and the symbolic idea of a
       wheel of fate, the project places seven tarot cards upright on a rotating platform instead
       of laying them flat on a table.
+    {:else}
+      命运之轮是一款带有驱动机构的塔罗牌交互装置，将选牌过程转化为具身的仪式。项目的灵感来自旋转木马的循环节奏与命运之轮的象征意象：七张塔罗牌竖立在旋转平台上，而非平铺于桌面。
+      {/if}
     </p>
 
     <p class="desc">
+      {#if lang === 'en'}
       Users control the movement through non-contact hand gestures: one side sensor rotates the
       wheel clockwise, the other rotates it counterclockwise, and bringing both hands close stops
       the platform with a short vibration feedback. Built with Arduino, ultrasonic sensors, a
@@ -31,20 +41,23 @@
       interaction as a quick click or button press, Wheel of Fortune explores how motion, timing,
       gesture, and tactile feedback can make an everyday object feel magical, responsive, and
       emotionally charged.
+    {:else}
+      使用者通过非接触式手势控制运动：一侧传感器让转盘顺时针旋转，另一侧让它逆时针旋转；双手同时靠近时，平台停止，并给予短暂的振动反馈。装置由 Arduino、超声波传感器、步进电机和手工制作的卡牌结构构成，将简单的选择行为转化为一段观看、等待、感知与决定的缓慢体验。命运之轮探索运动、时机、手势与触觉反馈如何让日常物件带有魔法般的感受、响应性与情感张力，而不将交互仅仅视为快速点击或按键。
+      {/if}
     </p>
 
     <div class="tags">
-      {#each ['Arduino', 'Ultrasonic Sensors', 'Stepper Motor', 'Physical Computing', 'Interaction Design'] as tag}
+      {#each (lang === 'en' ? ['Arduino', 'Ultrasonic Sensors', 'Stepper Motor', 'Physical Computing', 'Interaction Design'] : ['Arduino', '超声波传感器', '步进电机', '物理计算', '交互设计']) as tag}
         <span class="tag">{tag}</span>
       {/each}
     </div>
 
-    <p class="section-label">Demo</p>
+    <p class="section-label">{lang === 'en' ? "Demo" : "演示"}</p>
 
     <div class="video-wrap">
       <iframe
         src="https://www.youtube.com/embed/e4kgiUxp-FM"
-        title="Wheel of Fortune demo"
+        title={lang === 'en' ? "Wheel of Fortune demo" : "命运之轮演示"}
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
@@ -53,17 +66,18 @@
     </div>
 
     <div class="actions">
-      <a class="action-btn" href="/wheel-of-fortune/writeup.pdf" target="_blank">Read Write-up ↗</a>
+      <a class="action-btn" href="/wheel-of-fortune/writeup.pdf" target="_blank">{lang === 'en' ? "Read Write-up ↗" : "阅读项目说明 ↗"}</a>
     </div>
 
     <div class="divider"></div>
 
-    <a href="/projects" class="back">&#8592; back to projects</a>
+    <a href="/projects" class="back">&#8592; {lang === 'en' ? 'back to projects' : '返回项目列表'}</a>
   </div>
 </div>
 
 
 <style>
+  .top-bar { display: flex; justify-content: space-between; align-items: center; }
   .root { width: 100vw; min-height: 100dvh; background: #08081a; display: flex; justify-content: center; padding: 80px 40px 120px; box-sizing: border-box; }
   .content { width: 100%; max-width: 860px; display: flex; flex-direction: column; gap: 0; }
   .back { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: lowercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; align-self: flex-start; }

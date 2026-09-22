@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { Mesh } from 'three';
   import { onMount, onDestroy } from 'svelte';
   import NavArrows from '$lib/components/NavArrows.svelte';
 
@@ -81,7 +82,7 @@
     // --- 作品卡片 ---
     // 分布：近(i 0-2, z 5→-5)  中(i 3-6, z -5→-12)  远(i 7-8, z -12→-20)
     // x 正负交替保证左右均匀；y 覆盖 -8 到 8
-    const cardMeshes: THREE.Mesh[] = [];
+    const cardMeshes: Mesh[] = [];
     const texLoader  = new THREE.TextureLoader();
 
     works.forEach((work, i) => {

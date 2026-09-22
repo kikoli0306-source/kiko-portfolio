@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ProjectLanguageToggle from "$lib/components/ProjectLanguageToggle.svelte";
   let lang = $state<'en' | 'zh'>('en');
 </script>
 
@@ -7,12 +8,10 @@
 </svelte:head>
 
 <div class="root">
-  <div class="content">
+  <div class="content" lang={lang === 'en' ? 'en' : 'zh-CN'}>
     <div class="top-bar">
-      <a href="/projects" class="back">&#8592; projects</a>
-      <button class="lang-toggle" onclick={() => lang = lang === 'en' ? 'zh' : 'en'}>
-        {lang === 'en' ? '中文' : 'English'}
-      </button>
+      <a href="/projects" class="back">&#8592; {lang === 'en' ? 'projects' : '项目'}</a>
+      <ProjectLanguageToggle bind:lang />
     </div>
 
     {#if lang === 'en'}
@@ -81,7 +80,7 @@
     </p>
 
     <div class="tags">
-      {#each ['Python', 'Streamlit', 'Plotly', 'GeoPandas', 'Data Visualization'] as tag}
+      {#each ['Python', 'Streamlit', 'Plotly', 'GeoPandas', '数据可视化'] as tag}
         <span class="tag">{tag}</span>
       {/each}
     </div>
@@ -112,7 +111,7 @@
     <div class="embed-wrap">
       <iframe
         src="https://alpr-surveillance-dashboard-axawcpzaowmvest455ladk.streamlit.app/?embedded=true"
-        title="Chicago ALPR Surveillance Dashboard"
+        title={lang === 'en' ? "Chicago ALPR Surveillance Dashboard" : "芝加哥 ALPR 监控仪表盘"}
         frameborder="0"
         class="embed"
       ></iframe>
@@ -120,7 +119,7 @@
 
     <div class="divider"></div>
 
-    <a href="/projects" class="back">&#8592; back to projects</a>
+    <a href="/projects" class="back">&#8592; {lang === 'en' ? 'back to projects' : '返回项目列表'}</a>
   </div>
 </div>
 
@@ -163,19 +162,6 @@
     color: rgba(255, 255, 255, 0.75);
   }
 
-  .lang-toggle {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: lowercase;
-    color: rgba(255,255,255,0.3);
-    background: none;
-    border: 0.5px solid rgba(255,255,255,0.15);
-    border-radius: 4px;
-    padding: 4px 12px;
-    cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .lang-toggle:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.35); }
 
   .header {
     margin-top: 56px;

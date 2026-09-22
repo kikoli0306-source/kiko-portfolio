@@ -1,13 +1,14 @@
 <script lang="ts">
+  import ProjectLanguageToggle from "$lib/components/ProjectLanguageToggle.svelte";
   let lang = $state<'en' | 'zh'>('en');
   let lightbox: string | null = $state(null);
 
   const screenshots = [
-    { src: '/brave-buddies/cover.png', alt: 'Title screen' },
-    { src: '/brave-buddies/screenshot-2.png', alt: 'Forest level' },
-    { src: '/brave-buddies/screenshot-3.png', alt: 'Snow level' },
-    { src: '/brave-buddies/screenshot-4.png', alt: 'End screen' },
-    { src: '/brave-buddies/screenshot-1.png', alt: 'Intro tutorial' },
+    { src: '/brave-buddies/cover.png', alt: 'Title screen', altZh: '标题画面' },
+    { src: '/brave-buddies/screenshot-2.png', alt: 'Forest level', altZh: '森林关卡' },
+    { src: '/brave-buddies/screenshot-3.png', alt: 'Snow level', altZh: '雪地关卡' },
+    { src: '/brave-buddies/screenshot-4.png', alt: 'End screen', altZh: '结束画面' },
+    { src: '/brave-buddies/screenshot-1.png', alt: 'Intro tutorial', altZh: '入门教程' },
   ];
 
   function openLightbox(src: string) { lightbox = src; }
@@ -25,12 +26,10 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <div class="root">
-  <div class="content">
+  <div class="content" lang={lang === 'en' ? 'en' : 'zh-CN'}>
     <div class="top-bar">
-      <a href="/projects" class="back">&#8592; projects</a>
-      <button class="lang-toggle" onclick={() => lang = lang === 'en' ? 'zh' : 'en'}>
-        {lang === 'en' ? '中文' : 'English'}
-      </button>
+      <a href="/projects" class="back">&#8592; {lang === 'en' ? 'projects' : '项目'}</a>
+      <ProjectLanguageToggle bind:lang />
     </div>
 
     {#if lang === 'en'}
@@ -73,7 +72,7 @@
     </p>
 
     <div class="tags">
-      {#each ['Unity', 'C#', 'Game Design', '2D Platformer'] as tag}
+      {#each ['Unity', 'C#', '游戏设计', '2D 平台游戏'] as tag}
         <span class="tag">{tag}</span>
       {/each}
     </div>
@@ -91,15 +90,15 @@
 
     <div class="gallery">
       {#each screenshots as shot}
-        <button class="thumb" onclick={() => openLightbox(shot.src)} aria-label={shot.alt}>
-          <img src={shot.src} alt={shot.alt} />
+        <button class="thumb" onclick={() => openLightbox(shot.src)} aria-label={lang === 'en' ? shot.alt : shot.altZh}>
+          <img src={shot.src} alt={lang === 'en' ? shot.alt : shot.altZh} />
         </button>
       {/each}
     </div>
 
     <div class="divider"></div>
 
-    <a href="/projects" class="back">&#8592; back to projects</a>
+    <a href="/projects" class="back">&#8592; {lang === 'en' ? 'back to projects' : '返回项目列表'}</a>
   </div>
 </div>
 
@@ -108,11 +107,11 @@
     class="overlay"
     role="button"
     tabindex="0"
-    aria-label="Close image"
+    aria-label={lang === 'en' ? "Close image" : "关闭图片"}
     onclick={closeLightbox}
     onkeydown={(e) => e.key === 'Enter' && closeLightbox()}
   >
-    <img class="lightbox-img" src={lightbox} alt="Screenshot enlarged" />
+    <img class="lightbox-img" src={lightbox} alt={lang === 'en' ? "Screenshot enlarged" : "放大的截图"} />
   </div>
 {/if}
 
@@ -155,19 +154,6 @@
     color: rgba(255, 255, 255, 0.75);
   }
 
-  .lang-toggle {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    text-transform: lowercase;
-    color: rgba(255,255,255,0.3);
-    background: none;
-    border: 0.5px solid rgba(255,255,255,0.15);
-    border-radius: 4px;
-    padding: 4px 12px;
-    cursor: pointer;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  .lang-toggle:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.35); }
 
   .header {
     margin-top: 56px;

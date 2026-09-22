@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ProjectLanguageToggle from "$lib/components/ProjectLanguageToggle.svelte";
   let lang: 'en' | 'zh' = $state('en');
 </script>
 
@@ -7,27 +8,15 @@
 </svelte:head>
 
 <div class="root">
-  <div class="content">
+  <div class="content" lang={lang === 'en' ? 'en' : 'zh-CN'}>
     <div class="top-bar">
-      <a href="/projects" class="back">&#8592; projects</a>
-      <div class="lang-toggle">
-        <button
-          class="lang-btn"
-          class:active={lang === 'en'}
-          onclick={() => (lang = 'en')}
-        >EN</button>
-        <span class="lang-sep">/</span>
-        <button
-          class="lang-btn"
-          class:active={lang === 'zh'}
-          onclick={() => (lang = 'zh')}
-        >中文</button>
-      </div>
+      <a href="/projects" class="back">&#8592; {lang === 'en' ? 'projects' : '项目'}</a>
+      <ProjectLanguageToggle bind:lang />
     </div>
 
     <div class="header">
-      <h1 class="title">SmartDrag</h1>
-      <p class="subtitle">Digital Twin · Unreal Engine 5 · Team Project</p>
+      <h1 class="title">{lang === 'en' ? "SmartDrag" : "智拖快手"}</h1>
+      <p class="subtitle">{lang === 'en' ? "Digital Twin · Unreal Engine 5 · Team Project" : "数字孪生 · Unreal Engine 5 · 团队项目"}</p>
     </div>
 
     {#if lang === 'en'}
@@ -55,7 +44,7 @@
     <div class="section">
       <p class="section-label">{lang === 'en' ? 'Presentation' : '项目演示'}</p>
       <div class="embed-wrap">
-        <iframe
+        <iframe title={lang === 'en' ? 'SmartDrag presentation' : '智拖快手项目演示'}
           src="https://docs.google.com/presentation/d/e/2PACX-1vSBawBGIuB7UpDyR_seZRlXO36M3A3dK9wKsQr-9t03waeBscXSAFpRE74ipn1FAw/pubembed?start=false&loop=false&delayms=3000"
           frameborder="0"
           allowfullscreen
@@ -65,14 +54,14 @@
     </div>
 
     <div class="tags">
-      {#each ['Unreal Engine 5', 'Digital Twin', 'AI', '3D Modeling', 'Data Visualization', 'Arduino'] as tag}
+      {#each (lang === 'en' ? ['Unreal Engine 5', 'Digital Twin', 'AI', '3D Modeling', 'Data Visualization', 'Arduino'] : ['Unreal Engine 5', '数字孪生', '人工智能', '三维建模', '数据可视化', 'Arduino']) as tag}
         <span class="tag">{tag}</span>
       {/each}
     </div>
 
     <div class="divider"></div>
 
-    <a href="/projects" class="back">&#8592; back to projects</a>
+    <a href="/projects" class="back">&#8592; {lang === 'en' ? 'back to projects' : '返回项目列表'}</a>
   </div>
 </div>
 
@@ -115,39 +104,9 @@
     color: rgba(255, 255, 255, 0.75);
   }
 
-  .lang-toggle {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-  }
 
-  .lang-btn {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    font-size: 0.72rem;
-    letter-spacing: 0.15em;
-    color: rgba(255, 255, 255, 0.25);
-    transition: color 0.2s;
-    font-family: inherit;
-  }
 
-  .lang-btn:hover {
-    color: rgba(255, 255, 255, 0.6);
-  }
-
-  .lang-btn.active {
-    color: rgba(255, 255, 255, 0.75);
-  }
-
-  .lang-sep {
-    font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.15);
-    user-select: none;
-  }
-
-  .header {
+.header {
     margin-top: 56px;
   }
 

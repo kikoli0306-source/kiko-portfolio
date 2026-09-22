@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ProjectLanguageToggle from "$lib/components/ProjectLanguageToggle.svelte";
   import { onMount } from 'svelte';
 
   let lang = $state<'en' | 'zh'>('en');
@@ -128,12 +129,10 @@
 <div class="bg-overlay"></div>
 
 <div class="root">
-  <div class="content">
+  <div class="content" lang={lang === 'en' ? 'en' : 'zh-CN'}>
     <div class="top-bar">
-      <a href="/projects" class="back">&#8592; projects</a>
-      <button class="lang-toggle" onclick={() => lang = lang === 'en' ? 'zh' : 'en'}>
-        {lang === 'en' ? '中文' : 'English'}
-      </button>
+      <a href="/projects" class="back">&#8592; {lang === 'en' ? 'projects' : '项目'}</a>
+      <ProjectLanguageToggle bind:lang />
     </div>
 
     {#if lang === 'en'}
@@ -174,7 +173,7 @@
     </p>
 
     <div class="tags">
-      {#each ['Arduino', 'Processing', 'Serial Communication', 'Haptics', 'Physical Computing'] as tag}
+      {#each ['Arduino', 'Processing', '串口通信', '触觉交互', '物理计算'] as tag}
         <span class="tag">{tag}</span>
       {/each}
     </div>
@@ -186,7 +185,7 @@
     <div class="video-wrap">
       <iframe
         src="https://www.youtube.com/embed/dTBbYVYnJhU"
-        title="Rain Touch demo"
+        title={lang === 'en' ? "Rain Touch demo" : "雨触演示"}
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
@@ -196,7 +195,7 @@
 
     <div class="divider"></div>
 
-    <a href="/projects" class="back">&#8592; back to projects</a>
+    <a href="/projects" class="back">&#8592; {lang === 'en' ? 'back to projects' : '返回项目列表'}</a>
   </div>
 </div>
 
@@ -239,8 +238,7 @@
   .top-bar { display: flex; justify-content: space-between; align-items: center; }
   .back { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: lowercase; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.2s; align-self: flex-start; }
   .back:hover { color: rgba(255,255,255,0.75); }
-  .lang-toggle { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: lowercase; color: rgba(255,255,255,0.3); background: none; border: 0.5px solid rgba(255,255,255,0.15); border-radius: 4px; padding: 4px 12px; cursor: pointer; transition: color 0.2s, border-color 0.2s; }
-  .lang-toggle:hover { color: rgba(255,255,255,0.75); border-color: rgba(255,255,255,0.35); }
+
   .header { margin-top: 56px; }
   .title { font-family: "Fraunces", serif; font-size: clamp(2.5rem, 7vw, 5rem); font-weight: 300; letter-spacing: 0.05em; color: rgba(255,255,255,0.88); margin: 0; line-height: 1.1; }
   .subtitle { margin: 10px 0 0; font-size: 0.85rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.35); text-transform: uppercase; }

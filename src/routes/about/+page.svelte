@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resume } from '$lib/resume';
   import NavArrows from '$lib/components/NavArrows.svelte';
 
   let lang = $state<'en' | 'zh'>('en');
@@ -32,14 +33,14 @@
   <title>About — Kiko Li</title>
 </svelte:head>
 
-<div class="root">
+<div class="root" lang={lang === 'en' ? 'en' : 'zh-CN'}>
 
   <div class="top-bar">
     <a href="/" class="back">&#8592; back</a>
     <div class="top-right">
       <a
-        href={lang === 'en' ? '/Kiko_Li_Resume_EN.pdf' : '/Kiko_Li_Resume_CN.pdf'}
-        download
+        href={lang === 'en' ? '/Xiang_Li_CV_EN.docx' : '/Xiang_Li_CV_CN.pdf'}
+        download={lang === 'en' ? '李想-CV-EN.docx' : '李想-CV-CN.pdf'}
         class="lang-toggle"
         style="text-decoration: none;"
       >{lang === 'en' ? 'Résumé ↓' : '简历 ↓'}</a>
@@ -69,90 +70,6 @@
     </div>
   </div>
 
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">Education</span></div></div>
-    <div class="sec-body">
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">University of Chicago</p><p class="edu-date">June 2026</p></div>
-        <p class="edu-degree">M.A. in Digital Media Studies</p>
-        <p class="edu-detail">Merit Scholarship Recipient — $20,000</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">School of the Art Institute of Chicago</p><p class="edu-date">Jan 2025</p></div>
-        <p class="edu-degree">Bachelor of Fine Arts — Painting & Drawing</p>
-        <p class="edu-detail">Creative Honors Scholarship Recipient — $54,000</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">Experience</span></div></div>
-    <div class="sec-body">
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">Fathia</p><p class="edu-date">May – Jun 2026</p></div>
-        <p class="edu-degree">User Data Analytics Intern</p>
-        <p class="edu-detail">Collected and structured user data via the YouTube Data API; built datasets to support potential customer identification and segmentation. Developed automated scripts to model multi-dimensional user behavior; integrated LLM to generate personalized outreach emails at scale.</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">Tineco</p><p class="edu-date">Jul – Aug 2024</p></div>
-        <p class="edu-degree">Producer / Executive Producer · Hangzhou, China</p>
-        <p class="edu-detail">Led end-to-end execution of ad campaigns; managed production budget and vendor negotiations across multiple projects. Coordinated cross-functional teams (creative, logistics, media) to deliver shooting plans on schedule.</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">Hangzhou Tuwei Digital Intelligence Technology</p><p class="edu-date">Jun – Sep 2023</p></div>
-        <p class="edu-degree">3D Visualization Intern</p>
-        <p class="edu-detail">Built 1:1 scale 3D models of petroleum equipment using 3ds Max and VRay; delivered production-ready assets on deadline.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">Projects</span></div></div>
-    <div class="sec-body">
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">Flock Camera Data Physicalization</p><p class="edu-date">Apr 2026</p></div>
-        <p class="edu-degree">University of Chicago</p>
-        <p class="edu-detail">Built a tangible data physicalization installation mapping Chicago Flock/ALPR camera distribution using Toio robots and projection mapping. Designed dual-robot interaction for spatial selection and demographic filtering.</p>
-        <a href="/projects/tangible-surveillance" class="proj-link">View Project →</a>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">Ocean Intelligent Visualization Project</p><p class="edu-date">Nov 2024 – Mar 2025</p></div>
-        <p class="edu-degree">Data & Systems Project Member · Remote</p>
-        <p class="edu-detail">Processed and cleaned 10M+ global ocean records; built a smart agent (Coze + DeepSeek) to automate data crawling via REST APIs. Developed SvelteKit dashboards and animated demos to present data insights; assisted in 3D modelling of ocean environments.</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">Deified & The Pillow Man</p><p class="edu-date">2023 – 2024</p></div>
-        <p class="edu-degree">Set Design</p>
-        <p class="edu-detail">Directed visual style and scene composition for two theatrical productions in Chicago.</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">Zhejiang University of Finance and Economics</p><p class="edu-date">Jun – Sep 2022</p></div>
-        <p class="edu-degree">Data Analysis Project Member</p>
-        <p class="edu-detail">Analyzed West Lake visitor flow data; co-authored peer-reviewed paper published in Scientific Reports (2023).</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">Awards</span></div></div>
-    <div class="sec-body">
-      <div class="clip"><p class="body line">Bronze Award, 19th Zhejiang Provincial "Challenge Cup" College Student Academic Science & Technology Competition ("AI+" Track) — Co-developed "SmartDrag: A Portable Digital Twin Scene Editor" with a cross-disciplinary team.</p></div>
-      <a href="/projects/smartdrag" class="proj-link">View Project →</a>
-    </div>
-  </div>
-
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">Skills</span></div></div>
-    <div class="sec-body skills-grid">
-      <div class="skill line"><p class="skill-cat">Programming</p><p class="skill-val">Python, JavaScript, TypeScript, C/C++, Java, SQL</p></div>
-      <div class="skill line"><p class="skill-cat">Web & Data</p><p class="skill-val">SvelteKit, Tailwind CSS, REST API, Git/GitHub, Vercel, Streamlit, Excel, Dashboard Design</p></div>
-      <div class="skill line"><p class="skill-cat">Creative Tech</p><p class="skill-val">Unity (C#), Unreal Engine 5, Arduino</p></div>
-      <div class="skill line"><p class="skill-cat">3D & Design</p><p class="skill-val">Blender, Fusion 360, 3ds Max/VRay, 3D Printing, Figma, Photoshop, Illustrator, Premiere</p></div>
-      <div class="skill line"><p class="skill-cat">AI Tools & LLMs</p><p class="skill-val">Claude Code, OpenAI Codex; proficient in LLM-assisted development (vibe coding)</p></div>
-      <div class="skill line"><p class="skill-cat">Languages</p><p class="skill-val">Mandarin Chinese (Native) · English (Full Professional Proficiency)</p></div>
-    </div>
-  </div>
-
   {:else}
 
   <div class="hero reveal">
@@ -172,91 +89,32 @@
     </div>
   </div>
 
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">教育背景</span></div></div>
-    <div class="sec-body">
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">芝加哥大学</p><p class="edu-date">2026年6月</p></div>
-        <p class="edu-degree">数字媒体研究 文学硕士</p>
-        <p class="edu-detail">荣获优秀奖学金，金额2万美元</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">芝加哥艺术学院</p><p class="edu-date">2025年1月</p></div>
-        <p class="edu-degree">绘画与素描 艺术学士（BFA）</p>
-        <p class="edu-detail">荣获创意荣誉奖学金，金额5.4万美元</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">实习经历</span></div></div>
-    <div class="sec-body">
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">Fathia</p><p class="edu-date">2026年5月 — 6月</p></div>
-        <p class="edu-degree">用户数据分析实习生</p>
-        <p class="edu-detail">调用YouTube Data API对目标用户群体进行系统性数据采集，构建结构化用户数据集，支持潜在客户识别与分层分析。开发自动化数据处理脚本，对用户行为特征进行多维度建模，结合LLM批量生成个性化营销邮件，显著提升客户触达效率。</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">添可（Tineco）</p><p class="edu-date">2024年7月 — 8月</p></div>
-        <p class="edu-degree">制片人 / 执行制片人 · 杭州，中国</p>
-        <p class="edu-detail">统筹多个广告项目的全流程执行，负责预算管控与供应商资源谈判。协调创意、物流、媒介等跨部门团队高效协作，确保拍摄计划如期落地。</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">杭州图微数字智能科技</p><p class="edu-date">2023年6月 — 9月</p></div>
-        <p class="edu-degree">三维可视化实习生</p>
-        <p class="edu-detail">运用3ds Max与VRay完成石油设备的1:1精度三维建模，按时交付符合生产要求的数字资产。</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">项目经历</span></div></div>
-    <div class="sec-body">
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">Flock摄像头数据实物化装置</p><p class="edu-date">2026年4月</p></div>
-        <p class="edu-degree">芝加哥大学</p>
-        <p class="edu-detail">结合Toio机器人与投影映射技术，打造可触摸感知的空间数据装置，直观呈现芝加哥Flock/ALPR摄像头的地理分布。设计双机器人协同交互机制，支持区域选择与人口统计学维度的实时筛选。</p>
-        <a href="/projects/tangible-surveillance" class="proj-link">查看项目 →</a>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">海洋智能可视化项目</p><p class="edu-date">2024年11月 — 2025年3月</p></div>
-        <p class="edu-degree">数据与系统项目成员 · 远程</p>
-        <p class="edu-detail">清洗处理逾1000万条全球海洋数据；基于Coze与DeepSeek搭建智能体，通过REST API完成数据自动化采集。使用SvelteKit开发数据可视化仪表盘与动态演示页面，并参与海洋场景的三维环境建模。</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">《Deified》与《枕头人》</p><p class="edu-date">2023 — 2024</p></div>
-        <p class="edu-degree">舞台美术置景</p>
-        <p class="edu-detail">担任芝加哥两部话剧的视觉风格统筹与场景构图设计。</p>
-      </div>
-      <div class="edu line">
-        <div class="edu-row"><p class="edu-school">浙江财经大学</p><p class="edu-date">2022年6月 — 9月</p></div>
-        <p class="edu-degree">数据分析项目成员</p>
-        <p class="edu-detail">深入分析西湖景区游客流量数据，合著同行评审学术论文并发表于《Scientific Reports》（2023年）。</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">获奖情况</span></div></div>
-    <div class="sec-body">
-      <div class="clip"><p class="body line">铜奖 — 浙江省第十九届"挑战杯"大学生课外学术科技作品竞赛"人工智能+"专项赛：与跨学科团队联合研发作品《智拖快手——便携式数字孪生场景编辑器》。</p></div>
-      <a href="/projects/smartdrag" class="proj-link">查看项目 →</a>
-    </div>
-  </div>
-
-  <div class="section reveal">
-    <div class="label-col"><div class="clip"><span class="sec-label line">专业技能</span></div></div>
-    <div class="sec-body skills-grid">
-      <div class="skill line"><p class="skill-cat">编程语言</p><p class="skill-val">Python、JavaScript、TypeScript、C/C++、Java、SQL</p></div>
-      <div class="skill line"><p class="skill-cat">网页与数据</p><p class="skill-val">SvelteKit、Tailwind CSS、REST API、Git/GitHub、Vercel、Streamlit、Excel、仪表盘设计</p></div>
-      <div class="skill line"><p class="skill-cat">创意技术</p><p class="skill-val">Unity（C#）、Unreal Engine 5、Arduino</p></div>
-      <div class="skill line"><p class="skill-cat">三维与设计</p><p class="skill-val">Blender、Fusion 360、3ds Max/VRay、3D打印、Figma、Photoshop、Illustrator、Premiere</p></div>
-      <div class="skill line"><p class="skill-cat">AI 工具与大模型</p><p class="skill-val">Claude Code、OpenAI Codex；熟练运用 AI 辅助开发（vibe coding）工作流</p></div>
-      <div class="skill line"><p class="skill-cat">语言能力</p><p class="skill-val">中文（普通话，母语）· 英语（专业工作语言）</p></div>
-    </div>
-  </div>
-
   {/if}
+
+
+  {#each resume[lang].sections as section}
+    <div class="section reveal">
+      <div class="label-col"><div class="clip"><span class="sec-label line">{section.title}</span></div></div>
+      <div class="sec-body">
+        {#each section.entries as item}
+          <div class="edu line">
+            <div class="edu-row"><p class="edu-school">{item.title}</p><p class="edu-date">{item.date}</p></div>
+            {#if item.role || item.where}<p class="edu-degree">{[item.role, item.where].filter(Boolean).join(' · ')}</p>{/if}
+            {#each item.details as detail}<p class="edu-detail">{detail}</p>{/each}
+            {#if item.link}<a href={item.link} class="proj-link">{lang === 'en' ? 'View Project →' : '查看项目 →'}</a>{/if}
+          </div>
+        {/each}
+      </div>
+    </div>
+  {/each}
+  <div class="section reveal">
+    <div class="label-col"><div class="clip"><span class="sec-label line">{lang === 'en' ? 'Skills' : '技能'}</span></div></div>
+    <div class="sec-body skills-grid">
+      {#each resume[lang].skills as skill}
+        <div class="skill line"><p class="skill-cat">{skill.category}</p><p class="skill-val">{skill.value}</p></div>
+      {/each}
+    </div>
+  </div>
 
   <div class="divider"></div>
   <NavArrows />
@@ -474,6 +332,15 @@
     height: 0.5px;
     background: rgba(255,255,255,0.1);
     margin: 72px 0;
+  }
+
+  @media (max-width: 640px) {
+    .root { padding: 56px 24px 80px; }
+    .section { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
+    .edu-row { flex-direction: column; gap: 8px; }
+    .edu-date { margin-left: 0; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .about-body { flex-direction: column !important; }
   }
 
   .clip { overflow: hidden; }
