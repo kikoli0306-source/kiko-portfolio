@@ -137,7 +137,7 @@ export const resume = {
             "title": "Zhejiang Province 'Challenge Cup'",
             "role": "",
             "where": "",
-            "date": "2026",
+            "date": "2025",
             "details": [
               "Bronze Award, College Students’ Extracurricular Academic Science and Technology Competition, 'AI+' Special Track."
             ],
@@ -317,7 +317,7 @@ export const resume = {
             "title": "浙江省“挑战杯”",
             "role": "",
             "where": "",
-            "date": "2026",
+            "date": "2025",
             "details": [
               "大学生课外学术科技作品竞赛“人工智能+”专项赛铜奖。"
             ],
