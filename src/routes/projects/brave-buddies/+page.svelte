@@ -41,7 +41,7 @@
 
     <p class="desc">
       A solo-developed 2D co-op platformer made in Unity. Players control Wilo and Gabby across
-      three handcrafted biomes — forest, jungle, and snow — fighting enemies, collecting coins,
+      three handcrafted biomes — forest, cave, and snow — fighting enemies, collecting coins,
       and surviving together.
     </p>
 
@@ -68,7 +68,7 @@
     </div>
 
     <p class="desc">
-      一款独立开发的 Unity 2D 合作平台游戏。玩家操控 Wilo 和 Gabby，穿越三个手工打造的场景——森林、丛林与雪地，一同击败敌人、收集金币、相互扶持。
+      一款独立开发的 Unity 2D 合作平台游戏。玩家操控 Wilo 和 Gabby，穿越三个手工打造的场景——森林、洞穴与雪地，一同击败敌人、收集金币、相互扶持。
     </p>
 
     <div class="tags">

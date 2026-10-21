@@ -16,6 +16,13 @@
 
   const projects: Project[] = [
     {
+      title: 'Extraction Mode',
+      desc: 'Interaction design for a loot-and-extract mode in a three-character action RPG: rule questions, full player flow, seven core screens, and PC / gamepad adaptation.',
+      tags: ['Game UI', 'Interaction Flow', 'Rule Design', 'Cross-platform'],
+      cover: '/extraction-mode/cover.jpg',
+      slug: 'extraction-mode',
+    },
+    {
       title: 'Wheel of Fortune',
       desc: 'A gesture-controlled tarot selection device that turns card selection into an embodied ritual. Seven tarot cards rotate on a motorized platform, controlled by non-contact hand gestures.',
       tags: ['Arduino', 'Ultrasonic Sensors', 'Stepper Motor', 'Physical Computing', 'Interaction Design'],
@@ -40,7 +47,7 @@
     },
     {
       title: 'Brave Buddies',
-      desc: 'A solo-developed 2D co-op platformer in Unity. Two players fight through forest, jungle, and snow levels together.',
+      desc: 'A solo-developed 2D co-op platformer in Unity. Two players fight through forest, cave, and snow levels together.',
       tags: ['Unity', 'C#', 'Game Design', '2D Platformer'],
       cover: '/brave-buddies/cover.png',
       preview: '/brave-buddies/preview.mp4',
