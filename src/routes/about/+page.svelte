@@ -39,8 +39,8 @@
     <a href="/" class="back">&#8592; back</a>
     <div class="top-right">
       <a
-        href={lang === 'en' ? '/Xiang_Li_CV_EN.docx' : '/Xiang_Li_CV_CN.pdf'}
-        download={lang === 'en' ? '李想-CV-EN.docx' : '李想-CV-CN.pdf'}
+        href={lang === 'en' ? '/Xiang_Li_CV_EN.pdf' : '/Xiang_Li_CV_CN.pdf'}
+        download={lang === 'en' ? 'Xiang_Li_CV_EN.pdf' : '李想-CV-CN.pdf'}
         class="lang-toggle"
         style="text-decoration: none;"
       >{lang === 'en' ? 'Résumé ↓' : '简历 ↓'}</a>

@@ -1,4 +1,4 @@
-// Content transcribed from the supplied English DOCX and Chinese PDF resumes.
+// Content transcribed from the current English and Chinese resumes.
 export const resume = {
   "en": {
     "sections": [
@@ -30,13 +30,15 @@ export const resume = {
         "entries": [
           {
             "title": "ByteDance",
-            "role": "Product Department · Interaction Design Intern",
+            "role": "Douyin E-commerce Department · Interaction Design Intern",
             "where": "Shanghai, China",
             "date": "Apr 2026 – Jun 2026",
             "details": [
-              "User Journey Redesign: Led product design for an AI shopping-assistant module on Douyin E-commerce search results, moving AI decision support directly beneath search navigation and creating a new journey from AI-assisted answers to manual comparison and purchase conversion while maintaining compatibility with the traditional product-list experience;",
-              "AI Interaction Design: Built the core interaction framework around four structured content modules—key purchase considerations, category comparisons and pitfalls, budget-based recommendations, and user-fit guidance; limited each response to four lines with overflow truncation and designed four default follow-up prompts covering value picks, premium options, pros/cons comparisons, and purchase guidance;",
-              "Lifecycle & Edge-State Design: Designed end-to-end module states, including non-blocking skeleton loading with dynamic copy, automatic suppression for exact-brand queries to preserve the classic search page, and card-area hiding during product selection to avoid blank space, ensuring consistent behavior across normal and exception scenarios;"
+              "Project Overview: Contributed to the design of the AI shopping-guide module for Douyin E-commerce search, responsible for competitive analysis and high-fidelity prototypes (not yet launched);",
+              "Competitive Research: Benchmarked mainstream e-commerce platforms including Douyin, Taobao, and JD.com centered on AI shopping assistant scenarios; deconstructed core funnels spanning intent understanding, clarification prompts, product recommendations, price comparisons, and purchase conversions via empirical testing of diverse user queries; established unified user experience analysis dimensions and delivered competitive insights;",
+              "UX Analysis: Evaluated the AI assistant experience across dimensions including entry points, recommendation cards, progressive disclosure, parameter readability, algorithmic transparency, page redirects, and checkout flows; identified product discrepancies and usability friction across platforms during the \"AI response → screening and comparison → purchase decision\" journey;",
+              "Solution Design: Co-architected the AI assistant decision-making funnels and high-fidelity prototypes; modularized information including price breakdowns, user reviews, and core parameters into drill-down decision drivers; engineered a unified interaction flow of \"recommendation → in-depth explanation → return to final selection\", minimizing cognitive load and decision friction;",
+              "Methodology Consolidation: Translated ambiguous user requirements into actionable product features and information hierarchies; formulated an AI product analysis framework spanning from problem discovery and solution design to UX validation via competitive research, user journey deconstruction, information architecture, and prototype iterations;"
             ],
             "link": ""
           },
@@ -44,11 +46,11 @@ export const resume = {
             "title": "Fathia",
             "role": "User Operations Department · User Data Analysis Intern",
             "where": "Chicago, USA",
-            "date": "Feb 2026 – Mar 2026",
+            "date": "Feb 2025 – Mar 2025",
             "details": [
-              "Data Collection: Used Python and the YouTube Data API to collect 100,000+ user-behavior records with an effective-data rate above 85%, then built a structured user-profile taxonomy spanning 20+ dimensions to support prospect identification and precise audience segmentation;",
-              "LLM-Enabled Personalization: Used large language models to generate 500+ personalized marketing emails in batch, increasing content-production efficiency by approximately 60% and tailoring messaging to user-profile segments;",
-              "Business Impact: Iterated marketing strategy through data analysis, shortening the content-production cycle by approximately 40%, increasing the average email open rate to 25%+, and improving lead conversion by approximately 15%, supporting more targeted marketing decisions;"
+              "Data Collection: Co-developed a Python collection tool with an LLM, calling the official YouTube Data API to batch-collect channel and recent-video data by keyword: 300 keyword batches, 18,000+ channels, and 395,000 video titles and tags;",
+              "Data Screening: Designed deduplication, 60-day activity, language, and relevance rules to produce outreach lists, and packaged the pipeline as a desktop tool that operations teammates ran on their own;",
+              "AI Outreach: Used an LLM to write personalized email openers from each channel's latest video, applied email templates with optional manual review, sent through rotating accounts, and wrote send status back to the sheet;"
             ],
             "link": ""
           },
@@ -74,8 +76,8 @@ export const resume = {
             "where": "Chicago, USA",
             "date": "Feb 2026 – Mar 2026",
             "details": [
-              "Core Gameplay: Independently developed a 2D local co-op platformer in Unity and C#, writing 3,000+ lines of code and implementing dual-character controls with 5+ actions/skills per character plus 8+ core systems including combat, coin collection, and survival mechanics;",
-              "Level Design: Handcrafted five levels across forest, jungle, and snow biomes, built pixel-art environments, configured 8+ enemy types and 30+ collectibles, and independently integrated digital assets and developed the UI system; released the game on itch.io and reached 500+ plays;"
+              "Core Gameplay: Developed a 2D local co-op platformer in Unity and C#, implementing dual-character controls, melee and bow attacks, mutual revive, and coin and health pickups, using AI to help write code and debug;",
+              "Level Design: Built 6 levels across forest, cave, and snow settings with 8 enemy types including a boss, pacing them to teach controls first and add one new enemy type per level; released on itch.io;"
             ],
             "link": "/projects/brave-buddies"
           }
@@ -85,7 +87,7 @@ export const resume = {
         "title": "Team Projects",
         "entries": [
           {
-            "title": "Flock Camera Data Physicalization Installation",
+            "title": "ALPR Camera Data Physicalization Installation",
             "role": "Team Project · 5 Members · Core Member",
             "where": "Chicago, USA",
             "date": "Apr 2026 – May 2026",
@@ -208,13 +210,15 @@ export const resume = {
         "entries": [
           {
             "title": "字节跳动",
-            "role": "产品部 · 交互设计实习生",
+            "role": "抖音电商部 · 交互设计实习生",
             "where": "中国，上海",
             "date": "2026.04–2026.06",
             "details": [
-              "链路重构：主导抖音电商搜索结果页 AI 智能导购模块产品设计，将 AI 决策能力前置至搜索导航下方，构建 AI 智能解答→人工筛选比价→下单转化全新购物链路，兼顾智能体验与传统货架操作兼容性；",
-              "智能交互：搭建 AI 导购核心交互体系：设计核心选购要点—品类对比避坑—预算搭配建议—适配人群四段式结构化内容框架，单条 4 行溢出省略，配置 4 个默认追问标签（性价比款，高端款，优缺点对比，怎么选不踩坑）；",
-              "全态兜底：完成 AI 模块全生命周期状态设计，加载态采用骨架屏+动态文案且不阻塞商品流渲染，精准品牌词场景自动隐藏 AI 模块还原经典搜索页，选商品时隐藏卡片区避免留白，确保异常场景体验完整可控；"
+              "项目总述：参与抖音电商搜索 AI 导购模块设计，负责竞品分析与高保真原型（项目未上线）；",
+              "竞品研究：围绕AI智能导购场景，对抖音，淘宝，京东等主流电商平台开展竞品分析，通过多类型用户Query实测，拆解需求理解，澄清追问，商品推荐，比价对比及购买转化等核心链路，建立统一体验分析维度并输出竞品结论；",
+              "体验分析：从触发入口，推荐卡片，信息展开，参数可读性，解释透明度、页面跳转及下单路径等维度分析AI导购体验，识别不同平台在“AI解答→筛选比较→购买决策”过程中的产品差异与体验问题；",
+              "方案设计：参与AI导购决策链路与高保真原型设计，将价格明细，用户评价，核心参数等信息拆分为可进一步查看的决策依据，设计“推荐→深度解释→返回最终选择”的统一交互路径，降低用户比较与决策成本；",
+              "方法沉淀：学习将用户模糊需求转化为产品功能与信息层级，通过竞品研究，用户路径拆解，信息架构及原型迭代，形成从问题发现，方案设计到体验验证的AI产品分析思路；"
             ],
             "link": ""
           },
@@ -222,11 +226,11 @@ export const resume = {
             "title": "Fathia",
             "role": "用户运营部 · 用户数据分析实习生",
             "where": "美国，芝加哥",
-            "date": "2026.02–2026.03",
+            "date": "2025.02–2025.03",
             "details": [
-              "数据采集：基于 Python 调用 YouTube Data API 抓取逾 10 万条用户行为数据，数据有效率达 85%以上，构建涵盖20+维度的结构化用户画像标签体系，为潜在客户识别与精准用户分层提供统一数据底座；",
-              "建模运用：结合大语言模型（LLM）批量生成 500+封个性化营销邮件，内容生产效率提升约 60%，基于用户画像定制沟通策略以增强内容吸引力；",
-              "业务赋能：通过数据驱动的策略迭代，营销内容生产周期缩短约 40%，邮件平均打开率提升至 25%以上，潜在客户线索转化率提升约 15%，有力支持项目部精准营销决策；"
+              "数据采集：和大模型协作开发 Python 采集工具，调用 YouTube 官方接口按关键词批量采集频道和近期视频数据，累计 300 组关键词、1.8 万个频道、39.5 万条视频标题与标签；",
+              "数据筛选：设计去重、60 天活跃度、语言和相关度筛选规则，输出外联名单，并做成桌面小工具交给运营同事自己运行；",
+              "AI 外联：用大模型按频道最新视频生成个性化开场白，套邮件模板，可人工审核，多账号轮流发送并回写状态；"
             ],
             "link": ""
           },
@@ -252,8 +256,8 @@ export const resume = {
             "where": "美国，芝加哥",
             "date": "2026.02–2026.03",
             "details": [
-              "核心玩法：基于 Unity 引擎与 C#独立开发 2D 合作平台游戏，编写 3000+行代码，设计并实现双角色控制系统，各含 5+种动作与技能交互，实现战斗机制，硬币收集与生存逻辑等 8+核心玩法系统，构建流畅的本地合作游戏体验；",
-              "关卡设计：手工制作森林，丛林，雪地三大生物群落共 5 个关卡，完成像素风场景搭建，配置 8+种敌人类型与 30+个可收集物品，独立完成数字资产整合与 UI 系统开发，成功发布至 itch.io 平台，累计游玩量 500+次；"
+              "核心玩法：用 Unity 和 C# 开发 2D 本地双人合作平台游戏，实现双角色操控、近战与弓箭攻击、双人互相复活、金币与回血道具等系统，借助 AI 辅助写代码和排查报错；",
+              "关卡设计：搭建森林、洞穴、雪地三类场景共 6 个关卡，配置 8 种敌人（含 Boss），按「先教操作、逐关加新敌人」安排节奏，已发布到 itch.io；"
             ],
             "link": "/projects/brave-buddies"
           }
@@ -263,7 +267,7 @@ export const resume = {
         "title": "团队项目",
         "entries": [
           {
-            "title": "Flock 摄像头数据实物化装置",
+            "title": "车牌识别摄像头数据实物化装置",
             "role": "团队项目 · 5 人 · 核心成员",
             "where": "美国，芝加哥",
             "date": "2026.04–2026.05",
